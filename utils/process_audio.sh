@@ -1,21 +1,24 @@
 #!/bin/bash
 
 # 定义输入、中间和输出文件夹
-input_folder="/Users/qaz1214/Downloads/internlm2-kamen-rider-blade-roleplay/data/raw/audio"
-intermediate_folder="/Users/qaz1214/Documents/internlm2-kamen-rider-blade-roleplay-bkp/pcm"
-output_folder="/Users/qaz1214/Downloads/internlm2-kamen-rider-blade-roleplay/data/processed/m4a"
+input_folder="C:\Users\xiaoy\Downloads\wav"
+intermediate_folder="C:\Users\xiaoy\Downloads\pcm"
+output_folder="C:\Users\xiaoy\Downloads\m4a"
 
 # 确保中间和输出文件夹存在
 mkdir -p "$intermediate_folder"
 mkdir -p "$output_folder"
 
-# 转换和处理每个支持的音频文件格式
+# 检查是否有音频文件
 shopt -s nullglob
 files=("$input_folder"/*.{m4a,mp3})
 if [ ${#files[@]} -eq 0 ]; then
     echo "No audio files found in $input_folder"
     exit 1
 fi
+
+# 绝对路径的rnnoise_demo
+rnnoise_path="/absolute/path/to/rnnoise_demo"
 
 for input_file in "${files[@]}"; do
     # 提取文件扩展名和基本名称
@@ -30,13 +33,6 @@ for input_file in "${files[@]}"; do
 
     # 应用 rnnoise 降噪
     if [ -f "$intermediate_folder/$base_name.pcm" ]; then
-        ./examples/rnnoise_demo "$intermediate_folder/$base_name.pcm" "$intermediate_folder/${base_name}_denoised.pcm"
-        echo "Noise reduction applied: $intermediate_folder/${base_name}_denoised.pcm"
-    fi
-
-    # 应用 rnnoise 降噪（使用绝对路径）
-    rnnoise_path="/absolute/path/to/rnnoise_demo"
-    if [ -f "$rnnoise_path" ] && [ -f "$intermediate_folder/$base_name.pcm" ]; then
         "$rnnoise_path" "$intermediate_folder/$base_name.pcm" "$intermediate_folder/${base_name}_denoised.pcm"
         echo "Noise reduction applied: $intermediate_folder/${base_name}_denoised.pcm"
     fi
@@ -61,4 +57,5 @@ done
 
 echo "All files processed and saved to $output_folder"
 
+# 清理残留的中间文件
 trap 'rm -f "$intermediate_folder"/*.pcm' EXIT
