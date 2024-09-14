@@ -18,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.9'  # 升级 Python 版本
 
     - name: Install dependencies
       run: |
@@ -49,6 +49,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Deploy to Production
+      run: bash scripts/deploy.sh  # 添加部署到生产环境的步骤
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
