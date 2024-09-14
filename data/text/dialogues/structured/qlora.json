@@ -1,0 +1,97 @@
+# qlora.json
+
+{
+    "episode": 1,
+    "scene": "学校",
+    "dialogue": [
+        {
+            "turn": 1,
+            "speaker": "A",
+            "text": "今日はどうしたの？",
+            "timestamp": "00:01:23",
+            "context": "A进入教室，看到B看起来有些不开心。",
+            "emotion": "concerned"
+        },
+        {
+            "turn": 2,
+            "speaker": "B",
+            "text": "ちょっと疲れたんだ。",
+            "timestamp": "00:01:30",
+            "context": "A刚问了B。",
+            "emotion": "tired"
+        }
+    ]
+}
+
+
+
+{
+    "episode": 1,
+    "scene": "学校",
+    "dialogues": [
+        {
+            "turn": 1,
+            "speaker": "A",
+            "text": "今日はどうしたの？",
+            "context": {
+                "previous_dialogue": "None",
+                "scene_description": "A进入教室，看到B看起来有些不开心。",
+                "emotion": "concerned"
+            }
+        },
+        {
+            "turn": 2,
+            "speaker": "B",
+            "text": "ちょっと疲れたんだ。",
+            "context": {
+                "previous_dialogue": "A: 今日はどうしたの？",
+                "scene_description": "B坐在窗边的桌子上，头靠在手上。",
+                "emotion": "tired"
+            }
+        }
+    ]
+}
+
+
+
+{
+    "scene_id": "episode1_scene10",
+    "timestamp_start": "00:10:23",
+    "timestamp_end": "00:15:45",
+    "dialogue": [
+        {
+            "speaker": "角色A",
+            "role_info": {
+                "personality": "乐观开朗",
+                "background": "来自东京的大学生"
+            },
+            "text": "今日はいい天気ですね。",
+            "timestamp": "00:10:23"
+        },
+        {
+            "speaker": "角色B",
+            "role_info": {
+                "personality": "认真严格",
+                "background": "高校教师"
+            },
+            "text": "そうですね、でも私は今日は家で仕事があります。",
+            "timestamp": "00:10:35"
+        },
+        {
+            "speaker": "角色A",
+            "role_info": {
+                "personality": "乐观开朗",
+                "background": "来自东京的大学生"
+            },
+            "text": "それは残念です。",
+            "timestamp": "00:10:50"
+        }
+    ]
+}
+
+
+
+视频转文本qlora
+
+怎么配置jan.ai的token
+

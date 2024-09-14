@@ -2,4 +2,18 @@
 .DS_Store
 
 # Data
-data/wav/*
+data/audio/*
+
+# 忽略所有 .log 文件
+*.log
+
+# 忽略 node_modules 目录
+node_modules/
+
+# 忽略 build 输出目录
+build/
+
+# 忽略特定的文件夹路径
+Downloads/
+AppData/
+.temp/

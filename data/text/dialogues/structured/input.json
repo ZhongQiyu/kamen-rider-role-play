@@ -1,0 +1,20 @@
+{
+    "episodes": [
+        {
+            "title": "Episode 1",
+            "dialogues": [
+                {
+                    "text": "说话人1 00:01 Hello, how are you? 说话人2 00:02 Fine, thanks. How about you? 说话人1 00:03 I'm good, thanks!"
+                }
+            ]
+        },
+        {
+            "title": "Episode 2",
+            "dialogues": [
+                {
+                    "text": "说话人1 00:01 It's a nice day today. 说话人2 00:02 Yes, it really is. 说话人1 00:03 Should we go for a walk?"
+                }
+            ]
+        }
+    ]
+}

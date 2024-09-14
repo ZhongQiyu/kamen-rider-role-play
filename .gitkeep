@@ -1,6 +1,4 @@
-# 使用 `find` 命令递归搜索当前目录下的所有空文件夹
-
 find . -type d -empty -not -path "./.git/*" | while read -r dir; do
-  # 为每个空文件夹创建 `.gitkeep` 文件
-  touch "$dir/.gitkeep"
+  # 为每个空文件夹创建 `README.md` 文件，并写入说明
+  echo "This directory is intentionally left empty." > "$dir/README.md"
 done

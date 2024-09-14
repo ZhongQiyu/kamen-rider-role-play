@@ -1,0 +1,70 @@
+# Core dependencies
+tensorflow>=2.6.0  # 用于深度学习和机器学习模型训练
+pandas>=2.1.0  # 用于数据处理和操作
+numpy>=1.25.1  # 用于数值计算
+flask>=2.0.1  # 用于构建Web应用
+
+# Rasa dependencies
+rasa  # 用于构建对话式AI
+absl-py==0.15.0  # Rasa依赖库
+
+# Additional common dependencies
+scipy>=1.7.1  # 用于科学计算和统计
+matplotlib>=3.7.2  # 用于数据可视化
+seaborn>=0.12.2  # 用于高级数据可视化
+scikit-learn>=1.2.3  # 用于模型评估、数据预处理等
+jupyterlab>=3.1.11  # 用于交互式数据分析和开发
+
+# NLP dependencies
+transformers>=4.31.0  # 用于BERT和其他NLP模型
+torch>=2.0.1  # 用于深度学习模型训练（如BERT）
+fasttext==0.9.2  # 用于FastText模型训练和预测
+datasets>=1.11.0  # 用于NLP数据集加载和处理
+nltk>=3.8.1  # 用于自然语言处理任务（如分词）
+sentencepiece>=0.1.99  # 用于BERT和其他NLP模型的分词器
+
+# Web and API dependencies
+fastapi>=0.68.1  # 用于构建高性能API
+uvicorn>=0.15.0  # 用于运行FastAPI应用的ASGI服务器
+
+# Development and testing tools
+pytest>=6.2.5  # 用于测试Python应用
+black>=21.7b0  # 用于Python代码格式化
+flake8>=3.9.2  # 用于Python代码检查
+
+# GPU and performance optimization
+gpustat>=1.0.0  # 用于动态调整显存和监控GPU状态
+psutil>=5.9.5  # 用于系统内存和进程监控
+pycuda>=2023.1.2  # 用于与CUDA相关的操作
+
+# Data processing and optimization
+dask>=2023.8.1  # 用于大规模数据处理和延迟加载数据
+joblib>=1.1.0  # 用于并行计算和缓存结果
+ray>=1.9.0  # 用于分布式计算和并行处理
+
+# Data visualization
+plotly>=5.3.1  # 用于交互式数据可视化
+
+# Performance and monitoring
+optuna>=2.10.0  # 用于超参数优化
+loguru>=0.5.3  # 用于更简单和强大的日志记录
+prometheus-client>=0.11.0  # 用于监控应用程序的性能指标
+
+# Web requests and async operations
+requests>=2.26.0  # 用于HTTP请求
+aiohttp>=3.8.1  # 用于异步HTTP请求
+
+# Additional utilities
+openpyxl>=3.0.9  # 用于读取和写入Excel文件
+ujson>=5.1.0  # 超快的JSON处理库
+jsonschema>=4.1.2  # 用于验证JSON数据结构
+
+# NLP and tokenization enhancements
+spacy>=3.2.0  # 用于高级自然语言处理（如分词、NER等）
+tqdm>=4.62.3  # 用于进度条显示
+
+# Development utilities
+pylint>=2.10.0  # 用于静态代码分析
+mypy>=0.910  # 用于Python类型检查
+
+# Add any other dependencies your project might require here

@@ -1,0 +1,112 @@
+{
+    "dialogues": [
+        {
+            "dialogue_id": "dlg_4823",
+            "utterances": [
+                "今日の天気は素晴らしいですね。",
+                "公園に散歩に行きましょう。",
+                "あの花を見ましたか？とても綺麗です"
+            ],
+            "created_at": "2024-05-17 22:29:23.091338",
+            "participants": []
+        },
+        {
+            "dialogue_id": "dlg_4916",
+            "utterances": [
+                "今日の天気は素晴らしいですね。",
+                "公園に散歩に行きましょう。",
+                "あの花を見ましたか？とても綺麗です"
+            ],
+            "created_at": "2024-05-18 07:39:12.689819",
+            "participants": []
+        },
+        {
+            "dialogue_id": "dlg_4556",
+            "utterances": [
+                "今日の天気は素晴らしいですね。",
+                "公園に散歩に行きましょう。",
+                "あの花を見ましたか？とても綺麗です"
+            ],
+            "created_at": "2024-05-18 10:04:35.608897",
+            "participants": []
+        },
+        {
+            "dialogue_id": "dlg_3183",
+            "utterances": [
+                "今日の天気は素晴らしいですね。",
+                "公園に散歩に行きましょう。"
+            ],
+            "created_at": "2024-05-18 15:05:57.964701",
+            "participants": []
+        },
+        {
+            "dialogue_id": "dlg_6990",
+            "utterances": [
+                "今日の天気は素晴らしいですね。",
+                "公園に散歩に行きましょう。"
+            ],
+            "created_at": "2024-05-19 19:37:06.881084",
+            "participants": []
+        }
+    ],
+    "examples": {
+        "episodes": [
+            {
+                "episode": "ep1",
+                "dialogs": [
+                    {
+                        "speaker": "说话人1",
+                        "time": "00:18",
+                        "text": "剣崎君。"
+                    },
+                    {
+                        "speaker": "说话人2",
+                        "time": "01:06",
+                        "text": "目標視点。"
+                    }
+                ]
+            },
+            {
+                "episode": "ep2",
+                "dialogs": [
+                    {
+                        "speaker": "说话人1",
+                        "time": "00:11",
+                        "text": "めっ。"
+                    }
+                ]
+            }
+        ]
+    },
+    "studios": "https://geministudios.com/",
+    "sync": "https://www.kdocs.cn/l/clGUz2r3LpuP\n",
+    "ref": "# inference_tasks\nThis is a temporatory repository placing the demonstrations of LLMs and graphics-intensive projects.\n\nhttps://blog.gslin.org/archives/2022/06/26/10763/git-%E7%9A%84%E3%80%8C%E7%81%BD%E9%9B%A3%E8%99%95%E7%90%86%E3%80%8D/\n\nhttps://cloud.baidu.com/doc/WENXINWORKSHOP/s/wlmsub7ye\nhttps://aws.amazon.com/cn/blogs/china/based-on-intelligent-search-and-large-model-knowledge-base-practical-chapter/\nhttps://help.aliyun.com/zh/pai/using-pai-and-vector-search-to-implement-intelligent-conversation-based-on-the-knowledge-based-large-language-model",
+    "metrics": "Basic:\nRecall\nAccuracy\nF1-score\nPrecision\n\nCV:\nMean Average Precision\nVisual Saliency Detection\nObject Detection Accuracy\nImage Classification Accuracy\nFeature Extraction Efficiency\nImage Segmentation Performance\nRobustness to Image Variations\nImage Restoration or Enhancement Evaluation\n\nQA:\nPass@k\nRecall@k\nPrecision@k\nConsistency\nFusion Gain\nResponse Time\nTop-k Accuracy\nVisual Grounding\nComplementarity Test\nSemantic Consistency\nConversational Ability\nMulti-task Performance\nSuccess Rate at k (SR@k)\nMean Reciprocal Rank (MRR)\nHuman Understandability:\n- User Satisfaction Survey\n- Interpretability Metrics\nRobustness:\n- Stress Testing\n- Fault Injection\n- Adverserial Testing\nNormalized Discounted Cumulative Gain (NDCG)\nAverage Normalized Levenshtein Similarity (ANLS)\n",
+    "syllabus": "# syllabus.txt\n\n“使用 LMDeploy 以本地对话、网页Gradio、API服务中的一种方式部署 InternLM-Chat-7B 模型，生成 300 字的小故事（需截图）”\n\n“熟悉 hugging face 下载功能，使用 huggingface_hub python 包，下载 InternLM-20B 的 config.json 文件到本地（需截图下载过程）。”\n\n“\n对internlm-chat-7b模型进行量化，并同时使用KV Cache量化，使用量化后的模型完成API服务的部署，分别对比模型量化前后（将 bs设置为 1 和 max len 设置为512）和 KV Cache 量化前后（将 bs设置为 8 和 max len 设置为2048）的显存大小。\n”\n",
+    "example_csv": [
+        {
+            "episode": "ep1",
+            "speaker": "说话人1",
+            "time": "00:18",
+            "text": "剣崎君。"
+        },
+        {
+            "episode": "ep1",
+            "speaker": "说话人2",
+            "time": "01:06",
+            "text": "目標視点。"
+        },
+        {
+            "episode": "ep1",
+            "speaker": "说话人3",
+            "time": "01:06",
+            "text": "まで7020キロ。大丈夫ですか？桜さん、お前の花札相手じゃない、見てろ。"
+        },
+        {
+            "episode": "ep2",
+            "speaker": "说话人1",
+            "time": "00:11",
+            "text": "めっ。"
+        }
+    ]
+}
