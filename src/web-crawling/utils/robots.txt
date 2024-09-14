@@ -1,0 +1,15 @@
+# robots.txt generated at [your website]
+
+# Allow all robots complete access
+User-agent: *
+Disallow:
+
+# Block access to specific directories
+# Disallow: /private/
+# Disallow: /tmp/
+
+# Block access to specific files
+# Disallow: /private_file.html
+
+# Sitemap parameters
+# Sitemap: http://www.example.com/sitemap.xml

@@ -1,0 +1,22 @@
+{
+  "projectName": "MultiAgentSystem",
+  "numberOfAgents": 10,
+  "logging": true,
+  "logLevel": "info",
+  "agentDetails": {
+    "communicationProtocol": ["http","TCP","UDP"],
+    "maxDataSize": "20MB"
+  },
+  "environment": {
+    "type": "grid",
+    "size": "10x10"
+  },
+  "tasks": {
+    "count": 10,
+    "difficulty": "medium"
+  },
+  "simulation": {
+    "duration": 1000,
+    "timeUnit": "milliseconds"
+  }
+}

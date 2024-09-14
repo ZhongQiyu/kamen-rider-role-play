@@ -1,0 +1,16 @@
+{
+  ...
+  "metadata": {
+    ...
+    "outputConfig": {...}
+  },
+  ...
+  "response": {
+    ...
+    "results": [...],
+    "outputConfig": {
+      "gcs_uri":"gs://bucket/result-output-path"
+    },
+    "outputError": {...}
+  }
+}
