@@ -1,15 +1,20 @@
 [submodule "reazon-speech"]
 	path = reazon-speech
-	url = git@github.com:my-repo/ReazonSpeech.git
+	url = git@github.com:ZhongQiyu/ReazonSpeech.git
 
 [submodule "notebooks/audio-transcription/ReazonSpeech"]
 	path = notebooks/audio-transcription/ReazonSpeech
-	url = git@github.com:my-repo/ReazonSpeech.git
+	url = git@github.com:ZhongQiyu/ReazonSpeech.git
 
 [submodule "notebooks/audio-transcription/speech-to-text-webcam-overlay"]
 	path = notebooks/audio-transcription/speech-to-text-webcam-overlay
-	url = git@github.com:my-repo/speech-to-text-webcam-overlay.git
+	url = git@github.com:ZhongQiyu/speech-to-text-webcam-overlay.git
 
 [submodule "notebooks/audio-transcription/Aivis"]
 	path = notebooks/audio-transcription/Aivis
-	url = git@github.com:my-repo/Aivis.git
+	url = git@github.com:ZhongQiyu/Aivis.git
+
+[submodule "demos/projects/Chat-Haruhi-Suzumiya"]
+  	path = demos/projects/Chat-Haruhi-Suzumiya
+  	url = git@github.com:ZhongQiyu/Chat-Haruhi-Suzumiya.git
+ 
