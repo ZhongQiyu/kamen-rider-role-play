@@ -1,3 +1,5 @@
+# test_zhipuai_api_key.py
+
 import torch
 import torch.nn as nn
 from torch.utils._pytree import _register_pytree_node
@@ -28,12 +30,17 @@ _register_pytree_node(CustomNode,
                       )
 
 # 初始化日语模型和分词器
-tokenizer = AutoTokenizer.from_pretrained("rinna/japanese-gpt2-medium")
-model = AutoModelForCausalLM.from_pretrained("rinna/japanese-gpt2-medium")
+def load_japanese_model():
+    # 从 Hugging Face 的模型库中加载预训练的日语模型
+    tokenizer = AutoTokenizer.from_pretrained("rinna/japanese-gpt2-medium")
+    model = AutoModelForCausalLM.from_pretrained("rinna/japanese-gpt2-medium")
+    
+    # 使用 CUDA（如果可用）
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
+    return tokenizer, model, device
 
-# 使用 CUDA（如果可用）
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = model.to(device)
+tokenizer, model, device = load_japanese_model()
 
 def query_zhipuai(prompt, max_length=100):
     """
