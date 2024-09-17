@@ -90,3 +90,5 @@
 ### 相关资源
 - 文档：[Agent SIG 简介文档](https://aicarrier.feishu.cn/docx/OL5pdmXHkoInWkxfQIecRu8cnuf)
 - GitHub 讨论区：[Roleplay 讨论区](https://github.com/InternLM/tutorial/discussions/categories/roleplay)
+
+*统计工作量
