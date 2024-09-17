@@ -161,3 +161,14 @@ Google製多言語T5モデルに比べて、モデルサイズが25%小さく、
 
 [CC-BY SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)
 [Common Crawlの利用規約](http://commoncrawl.org/terms-of-use/)も守るようご注意ください。
+
+bert-ft - sft - dpo - llama.cpp - rag
+
+你能不能帮我建议一篇集成了语音识别+自然语言处理+计算机视觉的论文工作看下呢
+我指的是现在已经完成了的工作，而不是写作论文的方向
+有没有能够突出语音识别的，然后别的也包括的
+有没有大语言模型的工作
+
+- 使用 LMDeploy 以本地对话、网页 Gradio、API 服务中的一种方式部署 InternLM-Chat-7B 模型，生成 300 字的小故事（需截图）。
+- 熟悉 Hugging Face 的下载功能，使用 `huggingface_hub` Python 包，下载 InternLM-20B 的 `config.json` 文件到本地（需截图下载过程）。
+- 对 InternLM-Chat-7B 模型进行量化，并同时使用 KV Cache 量化，使用量化后的模型完成 API 服务的部署。分别对比模型量化前后（将 `bs` 设置为 1 和 `max_len` 设置为 512）和 KV Cache 量化前后（将 `bs` 设置为 8 和 `max_len` 设置为 2048）的显存大小。

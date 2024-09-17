@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 from torch.utils._pytree import _register_pytree_node
+from torch.utils._pytree import register_pytree_node  # 新版导入方式
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
 import requests

@@ -1,2 +1,0 @@
-# https://huggingface.co/blog/asr-chunking
-# https://huggingface.co/facebook/wav2vec2-base-960h
