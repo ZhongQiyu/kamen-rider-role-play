@@ -1,15 +1,40 @@
 # robots.txt generated at [your website]
 
-# Allow all robots complete access
+# 允许所有机器人完全访问
 User-agent: *
 Disallow:
 
-# Block access to specific directories
+# 可选择禁止访问特定目录
+# 如果你不希望某些目录被抓取，请取消注释以下行
 # Disallow: /private/
 # Disallow: /tmp/
 
-# Block access to specific files
+# 可选择禁止访问特定文件
+# 如果你不希望某些文件被抓取，请取消注释以下行
 # Disallow: /private_file.html
 
-# Sitemap parameters
+# 提供站点地图的链接
+# 如果有站点地图，请取消注释并替换为你的网站地图链接
 # Sitemap: http://www.example.com/sitemap.xml
+
+# 下面是一些推荐的链接和数据集，不需要在 robots.txt 中包含这些信息
+
+# 推荐的链接（仮面ライダー剣视频资源）
+# 仮面ライダー剣
+# https://www.hulu.jp/watch/60436898
+# https://tv.rakuten.co.jp/content/165731/
+# https://www.nicovideo.jp/watch/so38180596
+# https://video.unext.jp/episode/SID0070120/ED00373011
+
+# 数据集信息（不需要在robots.txt中包含）
+# datasets:
+# - aio
+# - aozora-txt
+#
+# datasets-cc-by-sa:
+# - jmrd
+# - ParaNatCom
+
+# 测试注释部分
+# testing
+# PRINT ERRORS

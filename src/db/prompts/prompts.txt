@@ -1,0 +1,17 @@
+# Japanese Dialogue Prompt Examples
+
+1. 「{キャラクターの名前}、この状況でどう対応しますか？」（例: ブレイドがバトル中に使うセリフを生成する）
+   - Purpose: To generate character-specific dialogue in a combat situation.
+
+2. 「次の対話を日本語で書き直してください: '{英文の対話}'」（例: 英語対話をより日本語らしい表現に変換する）
+   - Purpose: To rewrite English dialogue into a more natural Japanese expression.
+
+3. 「日本語で {キャラクター} と {キャラクター} の会話を生成してください。」（例: 仮面ライダーたちが戦いの後に会話する場面を生成する）
+   - Purpose: To create a conversation between two characters in Japanese.
+
+4. 「以下の文章を読み取り、登場人物の感情や意図を分析してください: '{台詞}'」
+   - Purpose: To analyze emotions and intentions in the given dialogue.
+
+5. 「{キャラクターの名前} の特徴に合った新しいセリフを生成してください。特に感情を強調すること。」
+   - Purpose: To generate new lines for a character that emphasize their emotions.
+
