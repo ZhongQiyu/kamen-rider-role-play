@@ -1,7 +1,0 @@
-datasets:
-aio
-aozora-txt
-
-datasets-cc-by-sa:
-jmrd
-ParaNatCom
