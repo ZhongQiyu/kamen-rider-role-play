@@ -1,4 +1,4 @@
-# integrated_manager.py
+# parser.py
 
 import json
 import os
@@ -14,7 +14,7 @@ import logging
 from fugashi import Tagger as FugashiTagger
 import boto3
 
-class ProgramManager:
+class Parser:
     def __init__(self, project_structure_path, dialogue_data_path, command=None, nodes_array=None, head_node_ip=None, port=None, video_dir=None, split_size_mb=None):
         self.project_structure_path = Path(project_structure_path)
         self.dialogue_data_path = Path(dialogue_data_path)
@@ -277,7 +277,7 @@ class NLP:
 
 def main():
     # Initialize ProgramManager and NLP
-    manager = ProgramManager('path/to/project_structure.json', 'path/to/dialogues.json', nodes_array=["node1", "node2"], head_node_ip="192.168.0.1", port=6379, video_dir="data/video", split_size_mb=50)
+    manager = Parser('path/to/project_structure.json', 'path/to/dialogues.json', nodes_array=["node1", "node2"], head_node_ip="192.168.0.1", port=6379, video_dir="data/video", split_size_mb=50)
     nlp_pipeline = NLP()
 
     # Example: Manage Ray cluster

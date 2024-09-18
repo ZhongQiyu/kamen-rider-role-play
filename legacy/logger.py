@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# logger.py
 
 import os
 import sys
