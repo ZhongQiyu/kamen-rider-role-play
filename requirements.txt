@@ -73,3 +73,12 @@ jsonschema>=4.1.2
 tqdm>=4.62.3
 pylint>=2.10.0
 mypy>=0.910
+
+
+
+https://github.com/Syllo/nvtop
+https://github.com/LiteOS/LiteOS
+https://github.com/huawei-noah/HEBO
+https://github.com/wlcrs/huawei_solar
+https://github.com/huaweicloud/huaweicloud-mrs-example
+https://github.com/huaweicloud/terraform-provider-huaweicloud
