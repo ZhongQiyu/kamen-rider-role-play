@@ -10,7 +10,7 @@ import zhipuai
 import torch.nn.functional as F
 
 # 加载自定义 CUDA 扩展 (cpp_extension)
-custom_cuda = load(name="custom_cuda", sources=["custom_add.cpp", "custom_add_kernel.cu"])
+custom_cuda = load(name="custom_cuda", sources=["cuda_add.cpp", "cuda_add_kernel.cu"])
 
 # 设置 ZhipuAI 的 API Key
 os.environ["zhipuai_api_key"] = "your_zhipuai_api_key_here"
