@@ -1,0 +1,12 @@
+{
+  "name": "alumni-network",
+  "version": "1.0.0",
+  "description": "Alumni network web application",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
