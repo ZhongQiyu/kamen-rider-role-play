@@ -1,90 +1,55 @@
 # autoencoder.py
 
 import os
+import cv2
 import numpy as np
 from PIL import Image, ImageDraw
-import cv2
-import tensorflow as tf
-from tensorflow.keras import layers, models
-from tensorflow.keras.applications import VGG16
 
-# 自动编码器模型的构建
-def build_autoencoder(input_shape):
-    # 编码器
-    encoder_input = layers.Input(shape=input_shape)
-    x = layers.Conv2D(16, (3, 3), activation='relu', padding='same')(encoder_input)
-    x = layers.MaxPooling2D((2, 2), padding='same')(x)
-    x = layers.Conv2D(8, (3, 3), activation='relu', padding='same')(x)
-    x = layers.MaxPooling2D((2, 2), padding='same')(x)
-    x = layers.Conv2D(8, (3, 3), activation='relu', padding='same')(x)
-    encoder_output = layers.MaxPooling2D((2, 2), padding='same')(x)
+# 加载图像并获取其尺寸
+def load_image_size(image_path):
+    img = cv2.imread(image_path)
+    if img is None:
+        raise ValueError(f"无法加载图像 {image_path}")
+    img_shape = img.shape  # 获取图像尺寸 (height, width, channels)
+    return img_shape
 
-    # 解码器
-    x = layers.Conv2D(8, (3, 3), activation='relu', padding='same')(encoder_output)
-    x = layers.UpSampling2D((2, 2))(x)
-    x = layers.Conv2D(8, (3, 3), activation='relu', padding='same')(x)
-    x = layers.UpSampling2D((2, 2))(x)
-    x = layers.Conv2D(16, (3, 3), activation='relu')(x)
-    x = layers.UpSampling2D((2, 2))(x)
-    decoder_output = layers.Conv2D(3, (3, 3), activation='sigmoid', padding='same')(x)
+# 简单的图像压缩函数 (通过缩放和降低质量)
+def compress_image(img, scale_percent=50):
+    # 获取原图像的尺寸
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    
+    # 使用OpenCV的resize函数进行图像压缩
+    compressed_img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+    return compressed_img
 
-    # 自动编码器模型
-    autoencoder = models.Model(encoder_input, decoder_output)
-    return autoencoder
-
-# 感知损失函数
-def perceptual_loss(y_true, y_pred):
-    vgg = VGG16(include_top=False, weights='imagenet', input_shape=(128, 128, 3))
-    vgg.trainable = False
-    # 使用 VGG16 提取特征
-    true_features = vgg(y_true)
-    pred_features = vgg(y_pred)
-    return tf.reduce_mean(tf.square(true_features - pred_features))
-
-# 微调模型
-def fine_tune_autoencoder(autoencoder, train_images, fine_tune_epochs=10):
-    if train_images is not None and len(train_images) > 0:
-        # 冻结编码器部分，只微调解码器部分
-        for layer in autoencoder.layers[:4]:  # 假设前4层为编码器部分
-            layer.trainable = False
-        
-        # 编译模型
-        autoencoder.compile(optimizer='adam', loss=perceptual_loss)
-
-        # 微调模型
-        autoencoder.fit(train_images, train_images, epochs=fine_tune_epochs, batch_size=32, shuffle=True)
-    else:
-        print("没有训练数据集，跳过微调过程。")
-
-# 加载训练数据
-def load_images(image_dir, target_size=(128, 128)):
-    images = []
-    if os.path.exists(image_dir):
-        for file_name in os.listdir(image_dir):
-            img_path = os.path.join(image_dir, file_name)
-            img = cv2.imread(img_path)
-            img = cv2.resize(img, target_size)
-            img = img.astype('float32') / 255.0
-            images.append(img)
-    else:
-        print(f"目录 {image_dir} 不存在，无法加载训练数据。")
-    return np.array(images)
+# 简单的图像解压函数 (通过放大)
+def decompress_image(img, original_size):
+    # 使用OpenCV的resize函数进行图像解压
+    decompressed_img = cv2.resize(img, (original_size[1], original_size[0]), interpolation=cv2.INTER_LINEAR)
+    return decompressed_img
 
 # 压缩和解压缩的流程
-def compress_and_save(input_path, output_path, model):
-    # 读取并调整图像大小
+def compress_and_save(input_path, output_path, scale_percent=50):
+    # 读取图像
     img = cv2.imread(input_path)
-    img = cv2.resize(img, (128, 128))  # 假设图像大小为128x128
-    img = img.astype('float32') / 255.0
+    if img is None:
+        raise ValueError(f"无法加载图像 {input_path}")
+    print(f"Input image loaded with shape: {img.shape}")
 
-    # 预测（压缩和解压缩）
-    img = np.expand_dims(img, axis=0)
-    compressed_img = model.predict(img)
+    # 压缩图像
+    compressed_img = compress_image(img, scale_percent)
+    print(f"Compressed image shape: {compressed_img.shape}")
 
-    # 保存压缩后的图像
-    compressed_img = np.squeeze(compressed_img) * 255
-    compressed_img = compressed_img.astype('uint8')
-    cv2.imwrite(output_path, compressed_img)
+    # 解压缩图像
+    decompressed_img = decompress_image(compressed_img, img.shape)
+    print(f"Decompressed image shape: {decompressed_img.shape}")
+
+    # 将输出像素值调整回 [0, 255] 并保存解压后的图像
+    decompressed_img = np.clip(decompressed_img, 0, 255).astype('uint8')
+    cv2.imwrite(output_path, decompressed_img)
+    print(f"Decompressed image saved to: {output_path}")
 
 # 创建示例训练图片
 def create_sample_images(num_images=5, image_size=(128, 128), output_dir='sample_images'):
@@ -106,27 +71,14 @@ def create_sample_images(num_images=5, image_size=(128, 128), output_dir='sample
 
 # 示例使用
 input_image_path = 'passport_bio.jpg'
-output_image_path = 'patssport_bio_compressed.jpg'
+output_image_path = 'passport_bio_compressed.jpg'
 train_images_path = 'sample_images/'  # 使用生成的示例图片
 
 # 生成训练图片
 create_sample_images(num_images=10, output_dir=train_images_path)
 
-# 加载并处理训练图像
-train_images = load_images(train_images_path)
+# 获取输入图像的大小
+input_image_size = load_image_size(input_image_path)
 
-# 构建自动编码器
-autoencoder_model = build_autoencoder((128, 128, 3))
-
-# 假设我们有预训练模型的权重
-# pretrained_weights_path = 'pretrained_autoencoder.h5'
-# if os.path.exists(pretrained_weights_path):
-#     autoencoder_model.load_weights(pretrained_weights_path)
-# else:
-#     print(f"预训练权重文件 {pretrained_weights_path} 不存在，使用随机初始化的权重。")
-
-# 微调模型
-# fine_tune_autoencoder(autoencoder_model, train_images, fine_tune_epochs=10)
-
-# 使用微调后的模型进行压缩和保存
-compress_and_save(input_image_path, output_image_path, autoencoder_model)
+# 压缩和保存图像
+compress_and_save(input_image_path, output_image_path, scale_percent=50)
