@@ -1,0 +1,8 @@
+message TranscriptOutputConfig {
+
+  oneof output_type {
+    // Specifies a Cloud Storage URI for the recognition results. Must be
+    // specified in the format: `gs://bucket_name/object_name`
+    string gcs_uri = 1;
+  }
+}

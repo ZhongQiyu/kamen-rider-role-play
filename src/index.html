@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base</title>
+</head>
+<body>
+    <h1>Knowledge Base</h1>
+    <h2>Add Dialogue</h2>
+    <form id="add-dialogue-form">
+        <label for="dialogue-id">Dialogue ID:</label>
+        <input type="text" id="dialogue-id" name="dialogue_id"><br>
+        <label for="utterances">Utterances:</label>
+        <input type="text" id="utterances" name="utterances"><br>
+        <button type="button" onclick="addDialogue()">Add Dialogue</button>
+    </form>
+
+    <h2>Generate Dialogue</h2>
+    <form id="generate-dialogue-form">
+        <label for="prompt">Prompt:</label>
+        <input type="text" id="prompt" name="prompt"><br>
+        <button type="button" onclick="generateDialogue()">Generate</button>
+    </form>
+    <p id="generated-text"></p>
+
+    <script>
+        async function addDialogue() {
+            const dialogueId = document.getElementById('dialogue-id').value;
+            const utterances = document.getElementById('utterances').value.split(',');
+
+            const response = await fetch('/add_dialogue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    dialogue_id: dialogueId,
+                    utterances: utterances,
+                    text: '',
+                    tags: [],
+                    participants: []
+                })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        }
+
+        async function generateDialogue() {
+            const prompt = document.getElementById('prompt').value;
+
+            const response = await fetch('/generate_dialogue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            const result = await response.json();
+            document.getElementById('generated-text').innerText = result.generated_text;
+        }
+    </script>
+</body>
+</html>

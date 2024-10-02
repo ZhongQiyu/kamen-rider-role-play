@@ -1,0 +1,85 @@
+version: '3'
+services:
+  project1:
+    build: ./project1
+    ports:
+      - "8001:8000"
+  project2:
+    build: ./project2
+    ports:
+      - "8002:8000"
+  project3:
+    build: ./project3
+    ports:
+      - "8003:8000"
+  project4:
+    build: ./project4
+    ports:
+      - "8004:8000"
+  project5:
+    build: ./project5
+    ports:
+      - "8005:8000"
+  project6:
+    build: ./project6
+    ports:
+      - "8006:8000"
+
+
+
+# 一个简单的 Dockerfile 示例
+FROM python:3.8-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "your_script.py"]
+
+
+
+version: '3'
+services:
+  project1:  # 需要CUDA支持的项目
+    build: ./project1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]  # 使用 GPU
+    environment:
+      - CUDA_VISIBLE_DEVICES=0  # 指定使用 GPU 0
+    volumes:
+      - ./project1:/app
+    ports:
+      - "8001:8000"
+  
+  project2:  # 不需要CUDA的项目
+    build: ./project2
+    deploy:
+      resources:
+        reservations:
+          devices: []
+    environment:
+      - CPU_ONLY=true  # 如果需要，可以通过环境变量控制
+    volumes:
+      - ./project2:/app
+    ports:
+      - "8002:8000"
+  
+  project3:  # 需要CUDA支持的项目
+    build: ./project3
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]  # 使用 GPU
+    environment:
+      - CUDA_VISIBLE_DEVICES=1  # 指定使用 GPU 1
+    volumes:
+      - ./project3:/app
+    ports:
+      - "8003:8000"
