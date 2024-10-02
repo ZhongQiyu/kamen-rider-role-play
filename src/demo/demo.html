@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamen Rider Blade Roleplay</title>
+</head>
+<body>
+    <h1>Kamen Rider Blade Roleplay Interface</h1>
+    
+    <!-- 使用 Gradio 创建输入表单 -->
+    <div id="gradio-form"></div>
+
+    <!-- 嵌入一个 iframe -->
+    <iframe id="testIframe" name="p-frame" class="embed-responsive-item" src="/_player_x_/592720" allowfullscreen></iframe>
+
+    <script>
+    window.onload = function() {
+        var iframe = document.getElementById('testIframe');
+        try {
+            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            console.log('Same origin. I can access the iframe document:', iframeDoc);
+        } catch (e) {
+            console.log('Cross-origin. I cannot access the iframe document:', e);
+        }
+    };
+    </script>
+</body>
+</html>
