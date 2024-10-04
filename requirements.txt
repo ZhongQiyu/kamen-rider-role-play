@@ -82,3 +82,15 @@ https://github.com/huawei-noah/HEBO
 https://github.com/wlcrs/huawei_solar
 https://github.com/huaweicloud/huaweicloud-mrs-example
 https://github.com/huaweicloud/terraform-provider-huaweicloud
+
+spark_ai_python
+dwspark
+cffi
+gevent
+greenlet
+pycparser
+six
+websockets
+websocket-client
+chardet
+openai
